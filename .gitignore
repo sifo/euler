@@ -1,0 +1,12 @@
+# Mac finder artifacts
+.DS_Store
+
+# vim artifacts
+**.swp
+
+# tmp
+\#*#
+*~
+
+target
+Cargo.lock
