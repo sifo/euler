@@ -29,21 +29,16 @@ func IntervalByNumberOfDigit(digit int) (int, int) {
 }
 
 func LargestPalindromeByNumberOfDigit(digit int) (int, int, int) {
-	res := 0
-	x := 0
-	y := 0
 	min, max := IntervalByNumberOfDigit(digit)
-	for i := min; i <= max; i++ {
-		for j := min; j <= max; j++ {
+	for i := max; i >= min; i-- {
+		for j := max; j >= min; j-- {
 			p := i * j
 			if IsPalindrome(p) {
-				res = p
-				x = i
-				y = j
+				return p, i, j
 			}
 		}
 	}
-	return res, x, y
+	return 0, 0, 0
 }
 
 func main() {
