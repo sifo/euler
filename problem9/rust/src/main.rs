@@ -1,10 +1,9 @@
 fn problem9(n: usize) -> (usize, usize, usize) {
-    for i in 1..(n/2) {
-        for j in 1..(n/2) {
-            for k in 1..(n/2) {
-                if i*i + j*j == k*k && i + j + k == n {
-                    return (i, j, k)
-                }
+    for a in 1..(n/2) {
+        for b in 1..(n/2) {
+            let c = n - a - b;
+            if a*a + b*b == c*c {
+                return (a, b, c)
             }
         }
     }
