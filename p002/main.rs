@@ -32,7 +32,7 @@ pub fn problem2_bis(l: u32) -> u32 {
 
 pub fn problem2(l: u32) -> u32 {
     let mut a = 1;
-    let mut b = 2; 
+    let mut b = 2;
     let mut c = a + b;
     let mut s = b;
     while c <= l {
@@ -45,11 +45,11 @@ pub fn problem2(l: u32) -> u32 {
     }
     s
 }
-    
+
 #[cfg(test)]
 mod tests {
     use super::*;
-    
+
     #[test]
     fn test_problem2() {
         assert_eq!(problem2(4_000_000), 4613732);

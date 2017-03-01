@@ -3,7 +3,7 @@ fn multiples(a: i32, b: i32, c: i32 ) -> i32 {
     let mut res = 0;
     for i in 1..c {
         if i % a == 0 || i % b == 0 {
-            res = res + i; 
+            res = res + i;
         }
     }
     res
@@ -20,7 +20,7 @@ fn multiples_vec(list: Vec<i32>, limit: i32) -> i32 {
     for i in 1..limit {
         for j in list.iter() {
             if i % *j == 0 {
-                res = res + i; 
+                res = res + i;
             }
         }
     }
@@ -38,7 +38,7 @@ fn multiples_array(a: &[i32], limit: i32) -> i32 {
     for i in 1..limit {
         for j in a.iter() {
             if i % *j == 0 {
-                res = res + i; 
+                res = res + i;
             }
         }
     }
@@ -47,8 +47,8 @@ fn multiples_array(a: &[i32], limit: i32) -> i32 {
 
 #[test]
 fn test_multiples_array() {
-    let array = [3, 5];
-    assert_eq!(multiples_array(array, 10), 23);
+    let array: [i32; 2] = [3, 5];
+    assert_eq!(multiples_array(&array, 10), 23);
 }
 
 fn is_div(a: &[i32], n: i32) -> bool {
@@ -62,13 +62,13 @@ fn is_div(a: &[i32], n: i32) -> bool {
 
 #[test]
 fn test_is_div() {
-    let array = [3, 5];
-    assert!(is_div(array, 3));
-    assert!(!is_div(array, 1));
+    let array: [i32; 2] = [3, 5];
+    assert!(is_div(&array, 3));
+    assert!(!is_div(&array, 1));
 }
 
 fn multiples_functional(a: &[i32], limit: i32) -> i32 {
-    let mut l = (1..limit).filter(|n| is_div(a, *n));
+    let l = (1..limit).filter(|n| is_div(a, *n));
     let mut res = 0;
     for i in l {
         res = res + i;
@@ -78,8 +78,8 @@ fn multiples_functional(a: &[i32], limit: i32) -> i32 {
 
 #[test]
 fn test_multiples_functional() {
-    let array = [3, 5];
-    assert_eq!(multiples_functional(array, 10), 23);
+    let array: [i32; 2] = [3, 5];
+    assert_eq!(multiples_functional(&array, 10), 23);
 }
 
 fn is_div_mini(a: &[i32], i: i32) -> bool {
@@ -88,9 +88,9 @@ fn is_div_mini(a: &[i32], i: i32) -> bool {
 
 #[test]
 fn test_is_div_mini() {
-    let array = [3, 5];
-    assert!(is_div_mini(array, 3));
-    assert!(!is_div_mini(array, 1));
+    let array: [i32; 2] = [3, 5];
+    assert!(is_div_mini(&array, 3));
+    assert!(!is_div_mini(&array, 1));
 }
 
 fn multiples_functional_mini(a: &[i32], limit: i32) -> i32 {
@@ -101,8 +101,8 @@ fn multiples_functional_mini(a: &[i32], limit: i32) -> i32 {
 
 #[test]
 fn test_multiples_functional_mini() {
-    let array = [3, 5];
-    assert_eq!(multiples_functional_mini(array, 10), 23);
+    let array: [i32; 2] = [3, 5];
+    assert_eq!(multiples_functional_mini(&array, 10), 23);
 }
 
 fn multiples_mini(a: &[i32], limit: i32) -> i32 {
@@ -117,7 +117,7 @@ fn multiples_mini(a: &[i32], limit: i32) -> i32 {
 #[test]
 fn test_multiples_mini() {
     let array = [3, 5];
-    assert_eq!(multiples_mini(array, 10), 23);
+    assert_eq!(multiples_mini(&array, 10), 23);
 }
 
 fn main() {
